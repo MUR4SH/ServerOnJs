@@ -17,6 +17,7 @@ http.createServer(async function(req, res){
                 console.log("json parse error")
                 return;
             }
+            body.entry = body.entry.toString();
             let obj_data = {
                 type: Boolean(body.entry.toLowerCase() == "true")?"entry":"attempt",
                 date: date.getFullYear()+"."+((date.getMonth()+1)<10?"0"+(date.getMonth()+1):"(date.getMonth()+1)")+"."+(date.getDate()<10?"0"+date.getDate():date.getDate()),
