@@ -20,7 +20,7 @@ http.createServer(async function(req, res){
             body.entry = body.entry.toString();
             let obj_data = {
                 type: Boolean(body.entry.toLowerCase() == "true")?"entry":"attempt",
-                date: date.getFullYear()+"."+((date.getMonth()+1)<10?"0"+(date.getMonth()+1):"(date.getMonth()+1)")+"."+(date.getDate()<10?"0"+date.getDate():date.getDate()),
+                date: date.getFullYear()+"."+((date.getMonth()+1)<10?"0"+(date.getMonth()+1):"0"+(date.getMonth()+1))+"."+(date.getDate()<10?"0"+date.getDate():date.getDate()),
                 time: (date.getHours()<10?"0"+date.getHours():date.getHours())+":"+(date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes())+":"+(date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds()),
             }
             console.log("Code lock: "+Number(body.id)+", "+obj_data.type+"");
